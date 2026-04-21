@@ -1,9 +1,5 @@
-import Comments from "./components/Comments/Comments";
-
-
 import { useState, useEffect } from "react";
 import Search from "./components/Search/Search";
-import MediaCatalog from "./components/MediaCatalog";
 import "./App.css";
 
 function App() {
@@ -18,15 +14,16 @@ function App() {
 
     return () => clearTimeout(timer);
   }, [searchQuery]);
-
+  
   return (
     <>
-      <p>{searchQuery}</p>
-      <Search onSearch={setSearchQuery} />
+      <Search 
+        onSearch={setSearchQuery}
+        debouncedQuery={debouncedQuery}
+        onTotalChange={setTotal}
+      />
       <p>{total}</p>
-      <MediaCatalog name={debouncedQuery} total={setTotal} />
-
-      <Comments/>
+      {/* <Comments/> */}
     </>
   );
 }
