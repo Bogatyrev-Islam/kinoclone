@@ -33,7 +33,7 @@ export const clearHistory = () => {
 };
 
 function History() {
-  const [history, setHistory] = useState(null);
+  const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
